@@ -11,6 +11,7 @@ typedef struct _module {
 } module;
 
 module *create_module(char *identifier, module_body *module_body);
+void name_analyze_module(module *module);
 void print_module(module *module, int indent);
 
 #endif

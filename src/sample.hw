@@ -20,3 +20,15 @@ module nameOfModule {
 
 }
 
+module sameModuleName {
+
+}
+
+module sameModuleName {
+
+}
+
+module test {
+
+}
+

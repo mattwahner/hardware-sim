@@ -15,7 +15,10 @@ module_body *create_module_body(module_input *module_inputs, module_output *modu
 void print_module_body(module_body *module_body, int indent) {
     print_indent(indent);
     printf("module_body\n");
-    print_module_input(module_body->module_inputs, indent + 4);
-    print_module_output(module_body->module_outputs, indent + 4);
-    print_module_internal(module_body->module_internals, indent + 4);
+    if (module_body->module_inputs != NULL)
+        print_module_input(module_body->module_inputs, indent + 4);
+    if (module_body->module_outputs != NULL)
+        print_module_output(module_body->module_outputs, indent + 4);
+    if (module_body->module_internals != NULL)
+        print_module_internal(module_body->module_internals, indent + 4);
 }

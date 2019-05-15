@@ -67,6 +67,7 @@ void yyerror(module **root_module, const char *s);
 
 modules: module modules {
     $1->next = $2;
+    *root_module = $1;
     $$ = $1;
 } | %empty {
     $$ = NULL;
@@ -74,7 +75,6 @@ modules: module modules {
 
 module: T_MODULE T_IDENTIFIER T_LEFT_CURLY module_body T_RIGHT_CURLY {
     module *result = create_module($2, $4);
-    *root_module = result;
     $$ = result;
 };
 
@@ -203,6 +203,7 @@ int main(int argc, char **argv) {
     yyparse(&module);
 
     print_module(module, 0);
+    name_analyze_module(module);
 
     return 0;
 }
