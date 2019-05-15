@@ -4,7 +4,7 @@
 %{
 #include <stdio.h>
 #define YY_DECL int yylex()
-#include "ast.h"
+#include "ast/ast.h"
 #include "hardware-sim.tab.h"
 %}
 
