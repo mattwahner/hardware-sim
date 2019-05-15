@@ -1,0 +1,66 @@
+
+include "path/to/file.hw";
+include anotherModule from "path/to/other/file.hw";
+include anotherSecondModule, anotherThirdModule from "path/to/other/file.hw";
+
+module nameOfModule {
+
+    input inputWire;
+    input secondInputWire;
+    input [7:0] vectorInputWire;
+
+    output outputWire;
+    output secondOutputWire;
+    output [7:0] vectorOutputWire;
+
+    wire internalWire;
+    wire secondInternalWire;
+    wire [7:0] vectorInternalWire;
+
+    // Comment
+    combinational {
+        internalWire = inputWire & outputWire;
+        outputWire = internalWire & vectorInputWire[2];
+    }
+
+    testcase {
+        inputWire = 0;
+
+        assert outputWire == 1;
+    }
+
+    testcase testCaseName {
+        inputWire = 0;
+        
+        assert outputWire == 1;
+    }
+
+    testcase "long testcase name" {
+        inputWire = 0;
+        
+        assert outputWire == 1;
+    }
+
+}
+
+module smallModule {
+
+    input a, b;
+
+    output c;
+
+    combinational {
+        a = a & b;
+    }
+    
+}
+
+module outerModule {
+
+    wire a, b, c;
+
+    smallModule firstInstance(a, b, c);
+    smallModule secondInstance(a=a, b=b, c=c);
+
+}
+

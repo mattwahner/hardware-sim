@@ -1,0 +1,17 @@
+
+module nameOfModule {
+
+    input inputWire;
+    input secondInputWire;
+
+    output outputWire;
+    output secondOutputWire;
+
+    wire internalWire;
+    wire secondInternalWire;
+
+    typeOfModule noParam();
+    secondTypeOfModule oneParam(a);
+
+}
+
