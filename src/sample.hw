@@ -3,12 +3,15 @@ module nameOfModule {
 
     input inputWire;
     input secondInputWire;
+    input vectoredInputWire[6];
 
     output outputWire;
     output secondOutputWire;
+    output vectoredOutputWire[7];
 
     wire internalWire;
     wire secondInternalWire;
+    wire vectoredOutputWire[8];
 
     typeOfModule noParam();
     secondTypeOfModule oneParam(a);

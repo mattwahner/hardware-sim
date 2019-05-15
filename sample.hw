@@ -7,15 +7,15 @@ module nameOfModule {
 
     input inputWire;
     input secondInputWire;
-    input [7:0] vectorInputWire;
+    input vectorInputWire[7];
 
     output outputWire;
     output secondOutputWire;
-    output [7:0] vectorOutputWire;
+    output vectorOutputWire[7];
 
     wire internalWire;
     wire secondInternalWire;
-    wire [7:0] vectorInternalWire;
+    wire vectorInternalWire[7];
 
     // Comment
     combinational {
@@ -24,21 +24,27 @@ module nameOfModule {
     }
 
     testcase {
+        given:
         inputWire = 0;
 
-        assert outputWire == 1;
+        expect:
+        outputWire == 1;
     }
 
     testcase testCaseName {
+        given:
         inputWire = 0;
-        
-        assert outputWire == 1;
+
+        expect:
+        outputWire == 1;
     }
 
     testcase "long testcase name" {
+        given:
         inputWire = 0;
-        
-        assert outputWire == 1;
+
+        expect:
+        outputWire == 1;
     }
 
 }

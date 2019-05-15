@@ -11,7 +11,7 @@
 %%
 
 [ \r\n\t]                   ;
-\-?[0-9]+(\.([0-9])+)?      { yylval.int_value = atoi(yytext); return T_NUMBER; }
+\-?[0-9]+                   { yylval.int_value = atoi(yytext); return T_NUMBER; }
 "module"                    { return T_MODULE; }
 "combinational"             { return T_COMBINATIONAL; }
 "input"                     { return T_INPUT; }

@@ -91,6 +91,8 @@ module_inputs: module_input module_inputs {
 
 module_input: T_INPUT T_IDENTIFIER T_SEMICOLON {
     $$ = create_module_input($2);
+} | T_INPUT T_IDENTIFIER T_LEFT_BRACKET T_NUMBER T_RIGHT_BRACKET T_SEMICOLON {
+    $$ = create_vectored_module_input($2, $4);
 };
 
 module_outputs: module_output module_outputs {
@@ -102,6 +104,8 @@ module_outputs: module_output module_outputs {
 
 module_output: T_OUTPUT T_IDENTIFIER T_SEMICOLON {
     $$ = create_module_output($2);
+} | T_OUTPUT T_IDENTIFIER T_LEFT_BRACKET T_NUMBER T_RIGHT_BRACKET T_SEMICOLON {
+    $$ = create_vectored_module_output($2, $4);
 };
 
 module_internals: module_internal module_internals {
@@ -119,6 +123,8 @@ module_internal: module_wire {
 
 module_wire: T_WIRE T_IDENTIFIER T_SEMICOLON {
     $$ = create_module_wire($2);
+} | T_WIRE T_IDENTIFIER T_LEFT_BRACKET T_NUMBER T_RIGHT_BRACKET T_SEMICOLON {
+    $$ = create_vectored_module_wire($2, $4);
 };
 
 module_instance: T_IDENTIFIER T_IDENTIFIER T_LEFT_PARENS T_RIGHT_PARENS T_SEMICOLON {
