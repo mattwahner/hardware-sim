@@ -12,6 +12,8 @@ module nameOfModule {
 
     typeOfModule noParam();
     secondTypeOfModule oneParam(a);
+    thirdTypeOfModule twoParam(a, b);
+    fourthTypeOfModule threeParam(a, b=c, d=e);
 
 }
 

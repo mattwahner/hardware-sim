@@ -19,6 +19,8 @@ set(HARDWARE_SIM_SOURCES
         src/ast/module_wire.c
         src/ast/module_instance.c
         src/ast/actual.c
+        src/ast/positional_actual.c
+        src/ast/keyword_actual.c
         src/ast/ast_helper.c
         ${BISON_HardwareSimParser_OUTPUTS}
         ${FLEX_HardwareSimLexer_OUTPUTS}

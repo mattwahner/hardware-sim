@@ -135,7 +135,11 @@ actual_list: actual T_COMMA actual_list {
 };
 
 actual: T_IDENTIFIER {
-    $$ = create_actual($1);
+    positional_actual *result = create_positional_actual($1);
+    $$ = create_actual_from_positional_actual(result);
+} | T_IDENTIFIER T_ASSIGN T_IDENTIFIER {
+    keyword_actual *result = create_keyword_actual($1, $3);
+    $$ = create_actual_from_keyword_actual(result);
 };
 
 /*
